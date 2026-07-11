@@ -23,7 +23,7 @@ Every analysis is enriched by **Fireworks AI** (DeepSeek V4 Pro) — generating 
 
 ## Live Demo
 
-**https://codescope-ai.vercel.app**
+**https://codescope-ai-hack.vercel.app/**
 
 Try it now:
 - Paste any code snippet (try `eval()` with a hardcoded secret)
