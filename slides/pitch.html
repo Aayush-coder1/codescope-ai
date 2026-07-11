@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeScope AI — Hackathon Pitch</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; overflow: hidden; }
+  .slide { display: none; width: 100vw; height: 100vh; padding: 80px; flex-direction: column; justify-content: center; }
+  .slide.active { display: flex; }
+  h1 { font-size: 72px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+  h2 { font-size: 48px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+  h3 { font-size: 28px; font-weight: 600; margin-bottom: 16px; color: #a78bfa; }
+  p, li { font-size: 24px; line-height: 1.6; color: #ccc; }
+  ul { list-style: none; padding: 0; }
+  ul li { padding: 10px 0; padding-left: 30px; position: relative; }
+  ul li::before { content: "→"; position: absolute; left: 0; color: #a78bfa; font-weight: 700; }
+  .gradient { background: linear-gradient(135deg, #a78bfa, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .tag { display: inline-block; background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.3); border-radius: 8px; padding: 6px 16px; font-size: 16px; color: #a78bfa; margin: 4px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 64px; font-weight: 800; color: #a78bfa; }
+  .stat .label { font-size: 18px; color: #888; margin-top: 8px; }
+  .controls { position: fixed; bottom: 30px; right: 40px; display: flex; gap: 12px; z-index: 100; }
+  .controls button { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .controls button:hover { background: rgba(167,139,250,0.3); }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #a78bfa, #60a5fa); transition: width 0.3s; z-index: 100; }
+  .demo-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; margin-top: 20px; }
+  code { background: rgba(167,139,250,0.15); padding: 2px 8px; border-radius: 4px; font-size: 20px; color: #c4b5fd; }
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .vs > div { padding: 24px; border-radius: 12px; }
+  .vs .before { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); }
+  .vs .after { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); }
+  .footer { position: fixed; bottom: 30px; left: 40px; font-size: 14px; color: #555; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- SLIDE 1: Title -->
+<div class="slide active" id="s1">
+  <h1><span class="gradient">CodeScope AI</span></h1>
+  <h3 style="color:#888; font-weight:300; font-size:32px; margin-bottom:40px;">See your code. Don't just review it.</h3>
+  <p style="font-size:20px; color:#666;">AI Code Review Intelligence Platform — AMD Developer Hackathon ACT II · Unicorn Track</p>
+  <div style="margin-top:40px;">
+    <span class="tag">Next.js 16</span>
+    <span class="tag">Fireworks AI</span>
+    <span class="tag">DeepSeek V4</span>
+    <span class="tag">React Flow</span>
+    <span class="tag">TypeScript</span>
+  </div>
+</div>
+
+<!-- SLIDE 2: Problem -->
+<div class="slide" id="s2">
+  <h2>The Problem</h2>
+  <ul style="margin-top:20px;">
+    <li>Code review is <strong style="color:#fff;">slow</strong> — average PR takes 4-8 hours to review properly</li>
+    <li>Security issues hide in plain sight — devs miss <code>eval()</code>, hardcoded secrets, injection vectors</li>
+    <li>No tool gives you the <strong style="color:#fff;">full picture</strong> — security, performance, architecture, AI insights in one view</li>
+    <li>Existing tools (SonarQube, CodeClimate) are complex, expensive, and setup-heavy</li>
+  </ul>
+</div>
+
+<!-- SLIDE 3: Solution -->
+<div class="slide" id="s3">
+  <h2>The Solution</h2>
+  <div class="two-col" style="margin-top:30px;">
+    <div>
+      <h3>Paste anything</h3>
+      <ul>
+        <li>Code snippet</li>
+        <li>Git diff</li>
+        <li>GitHub repo URL</li>
+        <li>GitHub PR URL</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Get everything</h3>
+      <ul>
+        <li>Security + performance scores</li>
+        <li>Line-level findings</li>
+        <li>AI executive summary</li>
+        <li>Dependency risk map</li>
+        <li>Architecture breakdown</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: Live Demo -->
+<div class="slide" id="s4">
+  <h2>Live Demo</h2>
+  <div class="demo-box">
+    <h3>Try it right now</h3>
+    <p style="margin:16px 0;"><code>https://codescope-ai.vercel.app</code></p>
+    <ul>
+      <li>Paste <code>eval("alert(1)")</code> with a hardcoded AWS key → instant security alert</li>
+      <li>Drop <code>https://github.com/pmndrs/zustand</code> → full repo intelligence</li>
+      <li>Paste a PR URL → merge verdict in seconds</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SLIDE 5: Dashboard -->
+<div class="slide" id="s5">
+  <h2>The Dashboard</h2>
+  <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:24px; margin-top:30px;">
+    <div class="demo-box">
+      <h3>Security Card</h3>
+      <p>Threat level badges, patterns checked, files scanned. Critical/high/medium/low breakdown.</p>
+    </div>
+    <div class="demo-box">
+      <h3>Risk Heatmap</h3>
+      <p>Animated severity bars showing security vs performance issues at a glance.</p>
+    </div>
+    <div class="demo-box">
+      <h3>Dependency Graph</h3>
+      <p>Interactive React Flow visualization with risk-colored nodes, glow effects, and risk badges.</p>
+    </div>
+    <div class="demo-box">
+      <h3>Stats Bar</h3>
+      <p>Dynamic estimated review time, additions/deletions, complexity/maintainability scores.</p>
+    </div>
+    <div class="demo-box">
+      <h3>AI Insights</h3>
+      <p>Executive summary, technical debt, strengths, weaknesses, improvements — all AI-generated.</p>
+    </div>
+    <div class="demo-box">
+      <h3>Performance Card</h3>
+      <p>Impact badges, quick-fix count, estimated time saved. Files scanned breakdown.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: Tech -->
+<div class="slide" id="s6">
+  <h2>How We Built It</h2>
+  <div class="two-col" style="margin-top:30px;">
+    <div>
+      <h3>Stack</h3>
+      <ul>
+        <li>Next.js 16 + TypeScript</li>
+        <li>TailwindCSS v4 + shadcn/ui</li>
+        <li>Framer Motion animations</li>
+        <li>React Flow + Recharts</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Key Technical Wins</h3>
+      <ul>
+        <li>Native <code>https</code> over fetch (Next.js 16 fix)</li>
+        <li><code>reasoning_effort: "none"</code> — suppressed AI reasoning leaks</li>
+        <li>System-only instructions — clean AI output</li>
+        <li>Parallel GitHub API calls — 3x faster</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: AMD + Market -->
+<div class="slide" id="s7">
+  <h2>AMD Platform & Market</h2>
+  <div class="two-col" style="margin-top:30px;">
+    <div>
+      <h3>Meaningful AMD Usage</h3>
+      <ul>
+        <li>Fireworks AI runs on AMD Instinct MI300X GPUs</li>
+        <li>DeepSeek V4 Pro — AMD-optimized inference</li>
+        <li>All AI features powered by Fireworks API</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Market Potential</h3>
+      <ul>
+        <li>Direct competitor to CodeClimate, SonarQube</li>
+        <li>Zero setup — works from a URL</li>
+        <li>Free tier via Fireworks API</li>
+        <li>Target: 50M+ GitHub developers</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: CTA -->
+<div class="slide" id="s8">
+  <h1><span class="gradient">CodeScope AI</span></h1>
+  <h3 style="color:#888; font-weight:300; font-size:32px; margin-bottom:30px;">See your code. Don't just review it.</h3>
+  <p style="font-size:22px; margin-bottom:10px;"><code>https://codescope-ai.vercel.app</code></p>
+  <p style="font-size:18px; color:#666; margin-bottom:40px;">github.com/Aayush-coder1/codescope-ai</p>
+  <div style="display:flex; gap:40px;">
+    <div class="stat"><div class="num">4</div><div class="label">Analysis Modes</div></div>
+    <div class="stat"><div class="num">25+</div><div class="label">Security Patterns</div></div>
+    <div class="stat"><div class="num">&lt;2s</div><div class="label">AI Response Time</div></div>
+    <div class="stat"><div class="num">1</div><div class="label">Click Deploy</div></div>
+  </div>
+</div>
+
+<div class="controls">
+  <button onclick="prev()">← Prev</button>
+  <button onclick="next()">Next →</button>
+</div>
+<div class="footer">CodeScope AI · AMD Hackathon ACT II</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+
+  function show(n) {
+    slides[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    progress.style.width = ((current + 1) / slides.length * 100) + '%';
+  }
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  progress.style.width = (1 / slides.length * 100) + '%';
+</script>
+</body>
+</html>
