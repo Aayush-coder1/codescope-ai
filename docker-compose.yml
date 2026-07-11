@@ -1,0 +1,10 @@
+services:
+  codescope:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - FIREWORKS_API_KEY=${FIREWORKS_API_KEY}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    restart: unless-stopped
